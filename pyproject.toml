@@ -12,7 +12,7 @@ version = "0.1.0"
 description = "Reconstruct, analyze, and manipulate proteins from partial genomic data with gene splicing operations"
 readme = "README.md"
 authors = [{ name = "GenoProtein" }]
-license = { text = "MIT" }
+license = { text = "Proprietary" }
 requires-python = ">=3.10"
 keywords = ["bioinformatics", "genomics", "proteomics", "gene-splicing", "protein-engineering"]
 classifiers = [
