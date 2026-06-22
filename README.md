@@ -73,4 +73,4 @@ for orf in orfs:
 
 ## License
 
-MIT
+All Rights Reserved
