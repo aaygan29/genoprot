@@ -1,8 +1,5 @@
 from __future__ import annotations
 
-import sys
-from pathlib import Path
-
 import click
 
 from genoprotein import __version__
@@ -10,8 +7,8 @@ from genoprotein.core.assembly import ProteinReconstructor
 from genoprotein.core.orf import find_orfs
 from genoprotein.core.sequence import translate_dna, reverse_complement, gc_content
 from genoprotein.io.formats import read_fasta, write_fasta, SequenceRecord
-from genoprotein.splice.operations import splice_in, splice_out, splice_replace, splice_fusion
-from genoprotein.splice.design import design_fusion, add_tag
+from genoprotein.splice.operations import splice_in, splice_out
+from genoprotein.splice.design import design_fusion
 
 
 @click.group()

@@ -2,9 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Optional, Sequence
-
-from genoprotein.core.sequence import translate_dna, reverse_complement
+from genoprotein.core.sequence import translate_dna
 
 
 class Orientation(Enum):

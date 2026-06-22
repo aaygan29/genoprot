@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Optional
 
 from genoprotein.core.sequence import translate_dna, is_start_codon, is_stop_codon
 

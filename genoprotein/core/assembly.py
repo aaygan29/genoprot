@@ -4,7 +4,7 @@ from dataclasses import dataclass, field
 from typing import Optional
 
 from genoprotein.core.orf import find_orfs, OrfResult
-from genoprotein.core.sequence import translate_dna, reverse_complement
+from genoprotein.core.sequence import translate_dna
 
 
 @dataclass

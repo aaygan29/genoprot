@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from typing import Optional, Sequence
-
 from genoprotein.core.sequence import translate_dna
 
 

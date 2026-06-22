@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import re
 import time
 from typing import Optional
 
@@ -90,7 +89,7 @@ def fetch_refseq(
             text = resp.text.strip()
             if text.startswith(">"):
                 lines = text.splitlines()
-                seq = "".join(l[0] for l in lines[1:] if l[0] != ">")
+                seq = "".join(line[0] for line in lines[1:] if line[0] != ">")
                 return seq.upper()
             return None
         except requests.RequestException:
@@ -113,7 +112,7 @@ def fetch_uniprot(
             text = resp.text.strip()
             if text.startswith(">"):
                 lines = text.splitlines()
-                seq = "".join(l for l in lines[1:] if not l.startswith(">"))
+                seq = "".join(seg for seg in lines[1:] if not seg.startswith(">"))
                 return seq.upper()
             return None
         except requests.RequestException:

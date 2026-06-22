@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
-from typing import Iterator, Optional
+
 
 
 @dataclass
@@ -23,7 +23,6 @@ class SequenceRecord:
 
 
 def read_fasta(filepath: str, strict: bool = False) -> list[SequenceRecord]:
-    records: list[SequenceRecord] = []
     with open(filepath) as f:
         content = f.read()
     return _parse_fasta(content, strict, filepath)
