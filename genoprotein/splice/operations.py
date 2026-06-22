@@ -1,8 +1,6 @@
 from __future__ import annotations
 
 from genoprotein.core.sequence import translate_dna
-
-
 def splice_in(
     sequence: str,
     insert: str,
@@ -53,9 +51,7 @@ def splice_replace(
         )
     if in_frame:
         if target_start % 3 != 0:
-            raise ValueError(
-                f"Start {target_start} is not a codon boundary"
-            )
+            raise ValueError(f"Start {target_start} is not a codon boundary")
         if (target_end - target_start) % 3 != 0 and len(replacement) % 3 != 0:
             raise ValueError(
                 "Replacement length must preserve reading frame unless in_frame=False"
@@ -80,10 +76,8 @@ def splice_fusion(
                 break
 
     fused_dna = a + linker + b
-
-    if fused_dna.endswith("TAA") or fused_dna.endswith("TAG") or fused_dna.endswith("TGA"):
-        fused_protein = translate_dna(fused_dna, to_stop=True)
-    else:
-        fused_protein = translate_dna(fused_dna)
+    fused_protein = translate_dna(fused_dna, to_stop=True) if (
+        fused_dna.endswith("TAA") or fused_dna.endswith("TAG") or fused_dna.endswith("TGA")
+    ) else translate_dna(fused_dna)
 
     return fused_dna, fused_protein

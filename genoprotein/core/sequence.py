@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import re
-from typing import Optional
 
 STANDARD_CODON_TABLE: dict[str, str] = {
     "TTT": "F", "TTC": "F", "TTA": "L", "TTG": "L",
@@ -25,7 +24,7 @@ STANDARD_CODON_TABLE: dict[str, str] = {
 
 def translate_dna(
     sequence: str,
-    codon_table: Optional[dict[str, str]] = None,
+    codon_table: dict[str, str] | None = None,
     frame: int = 0,
     to_stop: bool = False,
 ) -> str:
@@ -53,17 +52,6 @@ def reverse_complement(sequence: str) -> str:
     return sequence.translate(DNA_COMPLEMENT)[::-1]
 
 
-AA_CODES = {
-    "Ala": "A", "Arg": "R", "Asn": "N", "Asp": "D",
-    "Cys": "C", "Glu": "E", "Gln": "Q", "Gly": "G",
-    "His": "H", "Ile": "I", "Leu": "L", "Lys": "K",
-    "Met": "M", "Phe": "F", "Pro": "P", "Ser": "S",
-    "Thr": "T", "Trp": "W", "Tyr": "Y", "Val": "V",
-    "Ter": "*", "Asx": "B", "Glx": "Z", "Xaa": "X",
-}
-AA_CODES.update({v: v for v in "ARNDCQEGHILKMFPSTWYVBZX"})
-
-
 def gc_content(sequence: str) -> float:
     seq = sequence.upper()
     if not seq:
@@ -78,3 +66,11 @@ def is_start_codon(codon: str) -> bool:
 
 def is_stop_codon(codon: str) -> bool:
     return codon.upper() in ("TAA", "TAG", "TGA")
+
+
+def detect_type(seq: str) -> str:
+    if not seq:
+        return "nucleotide"
+    valid_nt = set("ATGCNatgcn")
+    nt_ratio = sum(1 for c in seq if c in valid_nt) / len(seq)
+    return "nucleotide" if nt_ratio > 0.85 else "protein"

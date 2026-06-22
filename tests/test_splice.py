@@ -1,7 +1,7 @@
 import pytest
 
 from genoprotein.splice.operations import splice_in, splice_out, splice_replace, splice_fusion
-from genoprotein.splice.design import design_fusion, add_tag, Orientation, COMMON_TAGS
+from genoprotein.splice.design import design_fusion, add_tag, COMMON_TAGS
 
 
 class TestSpliceOperations:

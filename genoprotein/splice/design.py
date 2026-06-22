@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from enum import Enum
+
 from genoprotein.core.sequence import translate_dna
 
 
@@ -47,22 +48,6 @@ class FusionDesign:
     orientation: Orientation
     linker_type: LinkerType
 
-    def __repr__(self) -> str:
-        return (
-            f"FusionDesign({self.gene_a_name} -> {self.gene_b_name}, "
-            f"len={len(self.nucleotide_sequence)}bp, "
-            f"protein={len(self.protein_sequence)}aa"
-            f"{' [linker]' if self.linker_used else ''})"
-        )
-
-
-@dataclass
-class DesignSpec:
-    sequence: str
-    description: str = ""
-    gc_content: float = 0.0
-    warnings: list[str] = field(default_factory=list)
-
 
 def design_fusion(
     gene_a: str,
@@ -93,64 +78,26 @@ def design_fusion(
     if remove_start_b and b.startswith("ATG"):
         b = b[3:]
 
-    if orientation == Orientation.N_TO_C:
-        fused_nt = a + linker_seq + b
-    else:
-        fused_nt = b + linker_seq + a
-
+    fused_nt = a + linker_seq + b if orientation == Orientation.N_TO_C else b + linker_seq + a
     fused_protein = translate_dna(fused_nt, to_stop=True)
 
     return FusionDesign(
-        gene_a_name=gene_a_name,
-        gene_b_name=gene_b_name,
-        nucleotide_sequence=fused_nt,
-        protein_sequence=fused_protein,
-        linker_used=linker_seq,
-        orientation=orientation,
-        linker_type=linker_type,
+        gene_a_name=gene_a_name, gene_b_name=gene_b_name,
+        nucleotide_sequence=fused_nt, protein_sequence=fused_protein,
+        linker_used=linker_seq, orientation=orientation, linker_type=linker_type,
     )
-
-
-def add_linker(
-    sequence: str,
-    linker: str = "G4S",
-    position: str = "end",
-) -> str:
-    if linker in FLEXIBLE_LINKERS:
-        linker_seq = FLEXIBLE_LINKERS[linker]
-    else:
-        linker_seq = linker.upper()
-    seq = sequence.upper()
-    if position == "end":
-        return seq + linker_seq
-    elif position == "start":
-        return linker_seq + seq
-    else:
-        raise ValueError(f"Position must be 'start' or 'end', got {position}")
 
 
 def add_tag(
     sequence: str,
     tag: str = "His6",
     position: str = "C_terminal",
-    linker: str = "",
 ) -> str:
     seq = sequence.upper()
-    if tag in COMMON_TAGS:
-        tag_seq = COMMON_TAGS[tag]
-    else:
-        tag_seq = tag.upper()
-
-    linker_seq = ""
-    if linker:
-        if linker in FLEXIBLE_LINKERS:
-            linker_seq = FLEXIBLE_LINKERS[linker]
-        else:
-            linker_seq = linker.upper()
+    tag_seq = COMMON_TAGS.get(tag, tag.upper())
 
     if position.lower() in ("c_terminal", "c", "cterm"):
-        return seq + linker_seq + tag_seq if linker_seq else seq + tag_seq
+        return seq + tag_seq
     elif position.lower() in ("n_terminal", "n", "nterm"):
-        return (tag_seq + linker_seq + seq) if linker_seq else tag_seq + seq
-    else:
-        raise ValueError(f"Position must be C_terminal or N_terminal, got {position}")
+        return tag_seq + seq
+    raise ValueError(f"Position must be C_terminal or N_terminal, got {position}")
