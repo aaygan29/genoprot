@@ -1,54 +1,21 @@
-PROPRIETARY SOFTWARE LICENSE
-Copyright (c) 2026 GenoProtein
-All Rights Reserved.
+MIT License
 
-1. NO LICENSE GRANTED. This software and its associated documentation
-   files (collectively, the "Software") are proprietary and confidential.
-   No rights, title, or interest in the Software are granted to any person
-   or entity. All rights not expressly granted are reserved by the
-   copyright holder.
+Copyright (c) 2026 Aayush Gandhi
 
-2. PROHIBITED ACTIVITIES. Without the prior written consent of the
-   copyright holder, no person or entity may:
-   (a) copy, reproduce, duplicate, or distribute the Software or any
-       portion thereof, in any form or by any means;
-   (b) modify, adapt, translate, create derivative works from, or
-       otherwise alter the Software;
-   (c) merge the Software with any other software or system;
-   (d) publish, sublicense, sell, rent, lease, lend, or otherwise
-       transfer or make available the Software to any third party;
-   (e) use the Software for any commercial purpose whatsoever;
-   (f) reverse engineer, decompile, disassemble, or otherwise attempt
-       to derive the source code, structure, or algorithms of the
-       Software;
-   (g) remove, alter, or obscure any copyright, trademark, or other
-       proprietary notices contained in the Software;
-   (h) use the Software to train, develop, or improve any artificial
-       intelligence or machine learning model.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-3. CONFIDENTIALITY. The Software constitutes confidential and trade
-   secret information of the copyright holder. Any person or entity
-   accessing the Software must maintain its confidentiality and may not
-   disclose any aspect of the Software to any third party without prior
-   written consent.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-4. NO WARRANTY. THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE,"
-   WITHOUT ANY WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
-   NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-   PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. THE ENTIRE RISK AS
-   TO THE QUALITY AND PERFORMANCE OF THE SOFTWARE IS WITH THE USER.
-
-5. LIMITATION OF LIABILITY. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE
-   LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN
-   ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN
-   CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-
-6. ENFORCEMENT. Any violation of this license shall result in automatic
-   and immediate termination of any implied permissions and may subject
-   the violator to legal action, including but not limited to claims for
-   injunctive relief, damages, and attorneys' fees.
-
-7. GOVERNING LAW. This license shall be governed by and construed in
-   accordance with the laws of the United States and the State of
-   Delaware, without regard to conflict of law principles.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
