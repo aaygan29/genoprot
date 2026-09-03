@@ -1,3 +1,5 @@
+> **Moved.** This project now lives in [`aaygan29/bio-toolkit`](https://github.com/aaygan29/bio-toolkit/tree/main/genoprot). Full history was preserved there via `git subtree`. This repository is archived (read-only).
+
 # genoprot
 
 A Python toolkit to reconstruct, analyze, and manipulate proteins from partial genomic data, including gene-splicing operations.
